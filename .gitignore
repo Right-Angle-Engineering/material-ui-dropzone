@@ -3,3 +3,11 @@
 build/
 node_modules/
 styleguide/
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
