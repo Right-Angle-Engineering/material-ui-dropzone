@@ -41,7 +41,7 @@ class DropzoneArea extends React.PureComponent {
         const {fileObjects} = this.state;
 
         if (onChange) {
-            onChange(fileObjects.map((fileObject) => fileObject.file));
+            onChange(fileObjects.map((fileObject) => fileObject.file), fileObjects);
         }
     }
 
@@ -159,6 +159,7 @@ DropzoneArea.propTypes = {
      * Fired when the files inside dropzone change.
      *
      * @param {File[]} loadedFiles All the files currently loaded into the dropzone.
+     * @param {FileObject[]} loadedFileObjects All the files (as FileObjects) currently loaded into the dropzone.
      */
     onChange: PropTypes.func,
     /**
