@@ -3,9 +3,9 @@ import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
 import _asyncToGenerator from '@babel/runtime/helpers/asyncToGenerator';
 import _classCallCheck from '@babel/runtime/helpers/classCallCheck';
 import _createClass from '@babel/runtime/helpers/createClass';
-import _inherits from '@babel/runtime/helpers/inherits';
 import _possibleConstructorReturn from '@babel/runtime/helpers/possibleConstructorReturn';
 import _getPrototypeOf from '@babel/runtime/helpers/getPrototypeOf';
+import _inherits from '@babel/runtime/helpers/inherits';
 import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
 import _regeneratorRuntime from '@babel/runtime/regenerator';
 import PropTypes from 'prop-types';
@@ -48,7 +48,7 @@ function createFileFromUrl(_x) {
   return _createFileFromUrl.apply(this, arguments);
 }
 function _createFileFromUrl() {
-  _createFileFromUrl = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(url) {
+  _createFileFromUrl = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(url) {
     var response, data, metadata, filename;
     return _regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
@@ -202,8 +202,8 @@ var PreviewList$1 = withStyles(styles, {
   name: 'MuiDropzonePreviewList'
 })(PreviewList);
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 var styles$1 = function styles(_ref) {
   var palette = _ref.palette,
     shape = _ref.shape,
@@ -281,22 +281,20 @@ var defaultGetPreviewIcon = function defaultGetPreviewIcon(fileObject, classes) 
  * This components creates a Material-UI Dropzone, with previews and snackbar notifications.
  */
 var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(DropzoneAreaBase, _React$PureComponent);
-  var _super = _createSuper(DropzoneAreaBase);
   function DropzoneAreaBase() {
     var _this;
     _classCallCheck(this, DropzoneAreaBase);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _callSuper(this, DropzoneAreaBase, [].concat(args));
     _this.state = {
       openSnackBar: false,
       snackbarMessage: '',
       snackbarVariant: 'success'
     };
     _this.handleDropAccepted = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2(acceptedFiles, evt) {
+      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2(acceptedFiles, evt) {
         var _this$props, fileObjects, filesLimit, getFileAddedMessage, getFileLimitExceedMessage, onAdd, onDrop, fileObjs, message;
         return _regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
@@ -320,8 +318,8 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
 
               // Retrieve fileObjects data
               _context2.next = 7;
-              return Promise.all(acceptedFiles.map( /*#__PURE__*/function () {
-                var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(file) {
+              return Promise.all(acceptedFiles.map(/*#__PURE__*/function () {
+                var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(file) {
                   var data;
                   return _regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) switch (_context.prev = _context.next) {
@@ -425,7 +423,8 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
     };
     return _this;
   }
-  _createClass(DropzoneAreaBase, [{
+  _inherits(DropzoneAreaBase, _React$PureComponent);
+  return _createClass(DropzoneAreaBase, [{
     key: "notifyAlert",
     value: function notifyAlert() {
       var onAlert = this.props.onAlert;
@@ -508,7 +507,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
           previewGridClasses: previewGridClasses,
           previewGridProps: previewGridProps
         }));
-      }), reset && ( /*#__PURE__*/isValidElement(reset) ? reset : /*#__PURE__*/createElement(Button, {
+      }), reset && (/*#__PURE__*/isValidElement(reset) ? reset : /*#__PURE__*/createElement(Button, {
         onClick: reset.onClick,
         variant: "outlined",
         className: classes.resetButton
@@ -536,7 +535,6 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
       }, snackbarMessage)));
     }
   }]);
-  return DropzoneAreaBase;
 }(PureComponent);
 DropzoneAreaBase.defaultProps = {
   acceptedFiles: [],
@@ -766,8 +764,8 @@ var DropzoneAreaBase$1 = withStyles(styles$1, {
 })(DropzoneAreaBase);
 
 var _excluded = ["clearOnUnmount", "initialFiles", "onChange", "onDelete"];
-function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _callSuper$1(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$1() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _isNativeReflectConstruct$1() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$1 = function _isNativeReflectConstruct() { return !!t; })(); }
 var splitDropzoneAreaProps = function splitDropzoneAreaProps(props) {
   var clearOnUnmount = props.clearOnUnmount,
     initialFiles = props.initialFiles,
@@ -790,15 +788,13 @@ var splitDropzoneAreaProps = function splitDropzoneAreaProps(props) {
  * **Note** To listen to file changes use `onChange` event handler and notice that `onDelete` returns a `File` instance instead of `FileObject`.
  */
 var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(DropzoneArea, _React$PureComponent);
-  var _super = _createSuper$1(DropzoneArea);
   function DropzoneArea() {
     var _this;
     _classCallCheck(this, DropzoneArea);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _callSuper$1(this, DropzoneArea, [].concat(args));
     _this.state = {
       fileObjects: []
     };
@@ -808,10 +804,10 @@ var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
       if (onChange) {
         onChange(fileObjects.map(function (fileObject) {
           return fileObject.file;
-        }));
+        }), fileObjects);
       }
     };
-    _this.loadInitialFiles = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
+    _this.loadInitialFiles = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
       var initialFiles, fileObjs;
       return _regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
@@ -819,8 +815,8 @@ var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
             initialFiles = _this.props.initialFiles;
             _context2.prev = 1;
             _context2.next = 4;
-            return Promise.all(initialFiles.map( /*#__PURE__*/function () {
-              var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(initialFile) {
+            return Promise.all(initialFiles.map(/*#__PURE__*/function () {
+              var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(initialFile) {
                 var file, data;
                 return _regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) switch (_context.prev = _context.next) {
@@ -876,7 +872,7 @@ var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
       }, _callee2, null, [[1, 8]]);
     }));
     _this.addFiles = /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3(newFileObjects) {
+      var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee3(newFileObjects) {
         var filesLimit;
         return _regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
@@ -927,7 +923,8 @@ var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
     };
     return _this;
   }
-  _createClass(DropzoneArea, [{
+  _inherits(DropzoneArea, _React$PureComponent);
+  return _createClass(DropzoneArea, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadInitialFiles();
@@ -956,7 +953,6 @@ var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
       }));
     }
   }]);
-  return DropzoneArea;
 }(PureComponent);
 DropzoneArea.defaultProps = {
   clearOnUnmount: true,
@@ -976,6 +972,7 @@ process.env.NODE_ENV !== "production" ? DropzoneArea.propTypes = _extends({}, Dr
    * Fired when the files inside dropzone change.
    *
    * @param {File[]} loadedFiles All the files currently loaded into the dropzone.
+   * @param {FileObject[]} loadedFileObjects All the files (as FileObjects) currently loaded into the dropzone.
    */
   onChange: PropTypes.func,
   /**
@@ -988,8 +985,8 @@ process.env.NODE_ENV !== "production" ? DropzoneArea.propTypes = _extends({}, Dr
 }) : void 0;
 
 var _excluded$1 = ["cancelButtonText", "dialogProps", "dialogTitle", "fullWidth", "maxWidth", "onClose", "onSave", "open", "submitButtonText"];
-function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _callSuper$2(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$2() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _isNativeReflectConstruct$2() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$2 = function _isNativeReflectConstruct() { return !!t; })(); }
 
 // Split props related to DropzoneDialog from DropzoneArea ones
 function splitDropzoneDialogProps(allProps) {
@@ -1022,13 +1019,12 @@ function splitDropzoneDialogProps(allProps) {
  * It supports all the Props and Methods from `DropzoneAreaBase`.
  */
 var DropzoneDialogBase = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(DropzoneDialogBase, _React$PureComponent);
-  var _super = _createSuper$2(DropzoneDialogBase);
   function DropzoneDialogBase() {
     _classCallCheck(this, DropzoneDialogBase);
-    return _super.apply(this, arguments);
+    return _callSuper$2(this, DropzoneDialogBase, arguments);
   }
-  _createClass(DropzoneDialogBase, [{
+  _inherits(DropzoneDialogBase, _React$PureComponent);
+  return _createClass(DropzoneDialogBase, [{
     key: "render",
     value: function render() {
       var _splitDropzoneDialogP = splitDropzoneDialogProps(this.props),
@@ -1060,7 +1056,6 @@ var DropzoneDialogBase = /*#__PURE__*/function (_React$PureComponent) {
       }, submitButtonText)));
     }
   }]);
-  return DropzoneDialogBase;
 }(PureComponent);
 DropzoneDialogBase.defaultProps = {
   open: false,
@@ -1121,8 +1116,8 @@ process.env.NODE_ENV !== "production" ? DropzoneDialogBase.propTypes = _extends(
   showFileNamesInPreview: PropTypes.bool
 }) : void 0;
 
-function _createSuper$3(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$3(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _callSuper$3(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$3() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _isNativeReflectConstruct$3() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$3 = function _isNativeReflectConstruct() { return !!t; })(); }
 
 /**
  * This component provides an uncontrolled version of the DropzoneDialogBase component.
@@ -1132,15 +1127,13 @@ function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !
  * **Note** The `onSave` handler also returns `File[]` with all the accepted files.
  */
 var DropzoneDialog = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(DropzoneDialog, _React$PureComponent);
-  var _super = _createSuper$3(DropzoneDialog);
   function DropzoneDialog() {
     var _this;
     _classCallCheck(this, DropzoneDialog);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _callSuper$3(this, DropzoneDialog, [].concat(args));
     _this.state = {
       fileObjects: []
     };
@@ -1150,10 +1143,10 @@ var DropzoneDialog = /*#__PURE__*/function (_React$PureComponent) {
       if (onChange) {
         onChange(fileObjects.map(function (fileObject) {
           return fileObject.file;
-        }));
+        }), fileObjects);
       }
     };
-    _this.loadInitialFiles = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
+    _this.loadInitialFiles = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
       var initialFiles, fileObjs;
       return _regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
@@ -1161,8 +1154,8 @@ var DropzoneDialog = /*#__PURE__*/function (_React$PureComponent) {
             initialFiles = _this.props.initialFiles;
             _context2.prev = 1;
             _context2.next = 4;
-            return Promise.all(initialFiles.map( /*#__PURE__*/function () {
-              var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(initialFile) {
+            return Promise.all(initialFiles.map(/*#__PURE__*/function () {
+              var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(initialFile) {
                 var file, data;
                 return _regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) switch (_context.prev = _context.next) {
@@ -1218,7 +1211,7 @@ var DropzoneDialog = /*#__PURE__*/function (_React$PureComponent) {
       }, _callee2, null, [[1, 8]]);
     }));
     _this.addFiles = /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3(newFileObjects) {
+      var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee3(newFileObjects) {
         var filesLimit;
         return _regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
@@ -1298,7 +1291,8 @@ var DropzoneDialog = /*#__PURE__*/function (_React$PureComponent) {
     };
     return _this;
   }
-  _createClass(DropzoneDialog, [{
+  _inherits(DropzoneDialog, _React$PureComponent);
+  return _createClass(DropzoneDialog, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadInitialFiles();
@@ -1326,7 +1320,6 @@ var DropzoneDialog = /*#__PURE__*/function (_React$PureComponent) {
       }));
     }
   }]);
-  return DropzoneDialog;
 }(PureComponent);
 DropzoneDialog.defaultProps = {
   clearOnUnmount: true,

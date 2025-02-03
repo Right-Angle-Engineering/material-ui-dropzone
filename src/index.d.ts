@@ -96,7 +96,7 @@ export type DropzoneAreaProps = Omit<
 > & {
   clearOnUnmount?: boolean;
   initialFiles?: (File | string)[];
-  onChange?: (files: File[]) => void;
+  onChange?: (files: File[], filesContent: FileObject[]) => void;
   onDelete?: (file: File) => void;
 };
 
