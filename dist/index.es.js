@@ -9,19 +9,19 @@ import _inherits from '@babel/runtime/helpers/inherits';
 import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
 import _regeneratorRuntime from '@babel/runtime/regenerator';
 import PropTypes from 'prop-types';
-import { createElement, Fragment, isValidElement, PureComponent } from 'react';
+import React__default, { createElement, Fragment, PureComponent } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
-import { withStyles } from '@mui/styles';
+import { withStyles } from '@mui/material';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import clsx from 'clsx';
 import Dropzone from 'react-dropzone';
 import Chip from '@mui/material/Chip';
 import Fab from '@mui/material/Fab';
-import Grid from '@mui/material/Grid';
+import Grid2 from '@mui/material/Grid2';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -144,7 +144,7 @@ function PreviewList(_ref2) {
     classes = _ref2.classes,
     getPreviewIcon = _ref2.getPreviewIcon;
   if (useChipsForPreview) {
-    return /*#__PURE__*/createElement(Grid, _extends({
+    return /*#__PURE__*/createElement(Grid2, _extends({
       spacing: 1,
       direction: "row"
     }, previewGridProps.container, {
@@ -152,8 +152,7 @@ function PreviewList(_ref2) {
       className: clsx(classes.root, previewGridClasses.container)
     }), fileObjects.map(function (fileObject, i) {
       var _fileObject$file$name, _fileObject$file;
-      return /*#__PURE__*/createElement(Grid, _extends({}, previewGridProps.item, {
-        item: true,
+      return /*#__PURE__*/createElement(Grid2, _extends({}, previewGridProps.item, {
         key: "".concat((_fileObject$file$name = (_fileObject$file = fileObject.file) === null || _fileObject$file === void 0 ? void 0 : _fileObject$file.name) !== null && _fileObject$file$name !== void 0 ? _fileObject$file$name : 'file', "-").concat(i),
         className: classes.imageContainer
       }), /*#__PURE__*/createElement(Chip, _extends({
@@ -164,17 +163,16 @@ function PreviewList(_ref2) {
       })));
     }));
   }
-  return /*#__PURE__*/createElement(Grid, _extends({
+  return /*#__PURE__*/createElement(Grid2, _extends({
     spacing: 8
   }, previewGridProps.container, {
     container: true,
     className: clsx(classes.root, previewGridClasses.container)
   }), fileObjects.map(function (fileObject, i) {
     var _fileObject$file$name2, _fileObject$file2;
-    return /*#__PURE__*/createElement(Grid, _extends({
-      xs: 4
+    return /*#__PURE__*/createElement(Grid2, _extends({
+      size: 4
     }, previewGridProps.item, {
-      item: true,
       key: "".concat((_fileObject$file$name2 = (_fileObject$file2 = fileObject.file) === null || _fileObject$file2 === void 0 ? void 0 : _fileObject$file2.name) !== null && _fileObject$file$name2 !== void 0 ? _fileObject$file$name2 : 'file', "-").concat(i),
       className: clsx(classes.imageContainer, previewGridClasses.item)
     }), getPreviewIcon(fileObject, classes), showFileNames && /*#__PURE__*/createElement(Typography, {
@@ -266,13 +264,13 @@ var defaultSnackbarAnchorOrigin = {
 };
 var defaultGetPreviewIcon = function defaultGetPreviewIcon(fileObject, classes) {
   if (isImage(fileObject.file)) {
-    return /*#__PURE__*/createElement("img", {
+    return /*#__PURE__*/React__default.createElement("img", {
       className: classes.image,
       role: "presentation",
       src: fileObject.data
     });
   }
-  return /*#__PURE__*/createElement(AttachFileIcon, {
+  return /*#__PURE__*/React__default.createElement(AttachFileIcon, {
     className: classes.image
   });
 };
@@ -474,7 +472,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
       var isMultiple = filesLimit > 1;
       var previewsVisible = showPreviews && fileObjects.length > 0;
       var previewsInDropzoneVisible = showPreviewsInDropzone && fileObjects.length > 0;
-      return /*#__PURE__*/createElement(Fragment, null, /*#__PURE__*/createElement(Dropzone, _extends({}, dropzoneProps, {
+      return /*#__PURE__*/React__default.createElement(Fragment, null, /*#__PURE__*/React__default.createElement(Dropzone, _extends({}, dropzoneProps, {
         accept: acceptFiles,
         onDropAccepted: this.handleDropAccepted,
         onDropRejected: this.handleDropRejected,
@@ -485,19 +483,19 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
           getInputProps = _ref4.getInputProps,
           isDragActive = _ref4.isDragActive,
           isDragReject = _ref4.isDragReject;
-        return /*#__PURE__*/createElement("div", getRootProps({
+        return /*#__PURE__*/React__default.createElement("div", getRootProps({
           className: clsx(classes.root, dropzoneClass, isDragActive && classes.active, !disableRejectionFeedback && isDragReject && classes.invalid)
-        }), /*#__PURE__*/createElement("input", getInputProps(inputProps)), /*#__PURE__*/createElement("div", {
+        }), /*#__PURE__*/React__default.createElement("input", getInputProps(inputProps)), /*#__PURE__*/React__default.createElement("div", {
           className: classes.textContainer
-        }, /*#__PURE__*/createElement(Typography, {
+        }, /*#__PURE__*/React__default.createElement(Typography, {
           variant: "h5",
           component: "p",
           className: clsx(classes.text, dropzoneParagraphClass)
-        }, dropzoneText), Icon ? /*#__PURE__*/createElement(Icon, {
+        }, dropzoneText), Icon ? /*#__PURE__*/React__default.createElement(Icon, {
           className: classes.icon
-        }) : /*#__PURE__*/createElement(CloudUploadIcon, {
+        }) : /*#__PURE__*/React__default.createElement(CloudUploadIcon, {
           className: classes.icon
-        })), previewsInDropzoneVisible && /*#__PURE__*/createElement(PreviewList$1, {
+        })), previewsInDropzoneVisible && /*#__PURE__*/React__default.createElement(PreviewList$1, {
           fileObjects: fileObjects,
           handleRemove: _this2.handleRemove,
           getPreviewIcon: getPreviewIcon,
@@ -507,14 +505,14 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
           previewGridClasses: previewGridClasses,
           previewGridProps: previewGridProps
         }));
-      }), reset && (/*#__PURE__*/isValidElement(reset) ? reset : /*#__PURE__*/createElement(Button, {
+      }), reset && (/*#__PURE__*/React__default.isValidElement(reset) ? reset : /*#__PURE__*/React__default.createElement(Button, {
         onClick: reset.onClick,
         variant: "outlined",
         className: classes.resetButton
-      }, reset.text || 'reset')), previewsVisible && /*#__PURE__*/createElement(Fragment, null, /*#__PURE__*/createElement(Typography, {
+      }, reset.text || 'reset')), previewsVisible && /*#__PURE__*/React__default.createElement(Fragment, null, /*#__PURE__*/React__default.createElement(Typography, {
         variant: "subtitle1",
         component: "span"
-      }, previewText), /*#__PURE__*/createElement(PreviewList$1, {
+      }, previewText), /*#__PURE__*/React__default.createElement(PreviewList$1, {
         fileObjects: fileObjects,
         handleRemove: this.handleRemove,
         getPreviewIcon: getPreviewIcon,
@@ -523,19 +521,19 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
         previewChipProps: previewChipProps,
         previewGridClasses: previewGridClasses,
         previewGridProps: previewGridProps
-      })), (typeof showAlerts === 'boolean' && showAlerts || Array.isArray(showAlerts) && showAlerts.includes(snackbarVariant)) && /*#__PURE__*/createElement(Snackbar, _extends({
+      })), (typeof showAlerts === 'boolean' && showAlerts || Array.isArray(showAlerts) && showAlerts.includes(snackbarVariant)) && /*#__PURE__*/React__default.createElement(Snackbar, _extends({
         anchorOrigin: defaultSnackbarAnchorOrigin,
         autoHideDuration: 6000
       }, alertSnackbarProps, {
         open: openSnackBar,
         onClose: this.handleCloseSnackbar
-      }), /*#__PURE__*/createElement(Alert, {
+      }), /*#__PURE__*/React__default.createElement(Alert, {
         severity: snackbarVariant,
         onClose: this.handleCloseSnackbar
       }, snackbarMessage)));
     }
   }]);
-}(PureComponent);
+}(React__default.PureComponent);
 DropzoneAreaBase.defaultProps = {
   acceptedFiles: [],
   filesLimit: 3,

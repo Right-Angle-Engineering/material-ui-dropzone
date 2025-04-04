@@ -1,8 +1,8 @@
 import Chip from '@mui/material/Chip';
 import Fab from '@mui/material/Fab';
-import Grid from '@mui/material/Grid';
+import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
-import {withStyles} from '@mui/styles';
+import {withStyles} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import clsx from 'clsx';
 import * as React from 'react';
@@ -60,7 +60,7 @@ function PreviewList({
 }) {
     if (useChipsForPreview) {
         return (
-            <Grid
+            <Grid2
                 spacing={1}
                 direction="row"
                 {...previewGridProps.container}
@@ -69,9 +69,8 @@ function PreviewList({
             >
                 {fileObjects.map((fileObject, i) => {
                     return (
-                        <Grid
+                        <Grid2
                             {...previewGridProps.item}
-                            item={true}
                             key={`${fileObject.file?.name ?? 'file'}-${i}`}
                             className={classes.imageContainer}
                         >
@@ -81,15 +80,15 @@ function PreviewList({
                                 label={fileObject.file.name}
                                 onDelete={handleRemove(i)}
                             />
-                        </Grid>
+                        </Grid2>
                     );
                 })}
-            </Grid>
+            </Grid2>
         );
     }
 
     return (
-        <Grid
+        <Grid2
             spacing={8}
             {...previewGridProps.container}
             container={true}
@@ -97,10 +96,9 @@ function PreviewList({
         >
             {fileObjects.map((fileObject, i) => {
                 return (
-                    <Grid
-                        xs={4}
+                    <Grid2
+                        size={4}
                         {...previewGridProps.item}
-                        item={true}
                         key={`${fileObject.file?.name ?? 'file'}-${i}`}
                         className={clsx(classes.imageContainer, previewGridClasses.item)}
                     >
@@ -119,10 +117,10 @@ function PreviewList({
                         >
                             <DeleteIcon />
                         </Fab>
-                    </Grid>
+                    </Grid2>
                 );
             })}
-        </Grid>
+        </Grid2>
     );
 }
 
