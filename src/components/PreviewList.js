@@ -1,6 +1,6 @@
 import Chip from '@mui/material/Chip';
 import Fab from '@mui/material/Fab';
-import Grid2 from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import {withStyles} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -60,7 +60,7 @@ function PreviewList({
 }) {
     if (useChipsForPreview) {
         return (
-            <Grid2
+            <Grid
                 spacing={1}
                 direction="row"
                 {...previewGridProps.container}
@@ -69,7 +69,7 @@ function PreviewList({
             >
                 {fileObjects.map((fileObject, i) => {
                     return (
-                        <Grid2
+                        <Grid
                             {...previewGridProps.item}
                             key={`${fileObject.file?.name ?? 'file'}-${i}`}
                             className={classes.imageContainer}
@@ -80,15 +80,15 @@ function PreviewList({
                                 label={fileObject.file.name}
                                 onDelete={handleRemove(i)}
                             />
-                        </Grid2>
+                        </Grid>
                     );
                 })}
-            </Grid2>
+            </Grid>
         );
     }
 
     return (
-        <Grid2
+        <Grid
             spacing={8}
             {...previewGridProps.container}
             container={true}
@@ -96,7 +96,7 @@ function PreviewList({
         >
             {fileObjects.map((fileObject, i) => {
                 return (
-                    <Grid2
+                    <Grid
                         size={4}
                         {...previewGridProps.item}
                         key={`${fileObject.file?.name ?? 'file'}-${i}`}
@@ -117,10 +117,10 @@ function PreviewList({
                         >
                             <DeleteIcon />
                         </Fab>
-                    </Grid2>
+                    </Grid>
                 );
             })}
-        </Grid2>
+        </Grid>
     );
 }
 

@@ -1,6 +1,6 @@
 import { ChipProps } from '@mui/material/Chip';
 import { DialogProps } from '@mui/material/Dialog';
-import { Grid2Props } from '@mui/material/Grid2';
+import { GridProps } from '@mui/material/Grid';
 import { SnackbarProps } from '@mui/material/Snackbar';
 import * as React from 'react';
 import { DropEvent, DropzoneProps } from 'react-dropzone';
@@ -56,8 +56,8 @@ export type DropzoneAreaBaseProps = {
     image?: string;
   };
   previewGridProps?: {
-    container?: Grid2Props;
-    item?: Grid2Props;
+    container?: GridProps;
+    item?: GridProps;
   };
   showAlerts?: boolean | AlertType[];
   alertSnackbarProps?: SnackbarProps;

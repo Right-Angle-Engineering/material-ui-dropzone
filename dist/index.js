@@ -28,7 +28,7 @@ var clsx = _interopDefault(require('clsx'));
 var Dropzone = _interopDefault(require('react-dropzone'));
 var Chip = _interopDefault(require('@mui/material/Chip'));
 var Fab = _interopDefault(require('@mui/material/Fab'));
-var Grid2 = _interopDefault(require('@mui/material/Grid2'));
+var Grid = _interopDefault(require('@mui/material/Grid'));
 var DeleteIcon = _interopDefault(require('@mui/icons-material/Delete'));
 var Dialog = _interopDefault(require('@mui/material/Dialog'));
 var DialogActions = _interopDefault(require('@mui/material/DialogActions'));
@@ -151,7 +151,7 @@ function PreviewList(_ref2) {
     classes = _ref2.classes,
     getPreviewIcon = _ref2.getPreviewIcon;
   if (useChipsForPreview) {
-    return /*#__PURE__*/React.createElement(Grid2, _extends({
+    return /*#__PURE__*/React.createElement(Grid, _extends({
       spacing: 1,
       direction: "row"
     }, previewGridProps.container, {
@@ -159,7 +159,7 @@ function PreviewList(_ref2) {
       className: clsx(classes.root, previewGridClasses.container)
     }), fileObjects.map(function (fileObject, i) {
       var _fileObject$file$name, _fileObject$file;
-      return /*#__PURE__*/React.createElement(Grid2, _extends({}, previewGridProps.item, {
+      return /*#__PURE__*/React.createElement(Grid, _extends({}, previewGridProps.item, {
         key: "".concat((_fileObject$file$name = (_fileObject$file = fileObject.file) === null || _fileObject$file === void 0 ? void 0 : _fileObject$file.name) !== null && _fileObject$file$name !== void 0 ? _fileObject$file$name : 'file', "-").concat(i),
         className: classes.imageContainer
       }), /*#__PURE__*/React.createElement(Chip, _extends({
@@ -170,14 +170,14 @@ function PreviewList(_ref2) {
       })));
     }));
   }
-  return /*#__PURE__*/React.createElement(Grid2, _extends({
+  return /*#__PURE__*/React.createElement(Grid, _extends({
     spacing: 8
   }, previewGridProps.container, {
     container: true,
     className: clsx(classes.root, previewGridClasses.container)
   }), fileObjects.map(function (fileObject, i) {
     var _fileObject$file$name2, _fileObject$file2;
-    return /*#__PURE__*/React.createElement(Grid2, _extends({
+    return /*#__PURE__*/React.createElement(Grid, _extends({
       size: 4
     }, previewGridProps.item, {
       key: "".concat((_fileObject$file$name2 = (_fileObject$file2 = fileObject.file) === null || _fileObject$file2 === void 0 ? void 0 : _fileObject$file2.name) !== null && _fileObject$file$name2 !== void 0 ? _fileObject$file$name2 : 'file', "-").concat(i),

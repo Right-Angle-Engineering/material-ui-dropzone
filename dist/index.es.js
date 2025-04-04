@@ -21,7 +21,7 @@ import clsx from 'clsx';
 import Dropzone from 'react-dropzone';
 import Chip from '@mui/material/Chip';
 import Fab from '@mui/material/Fab';
-import Grid2 from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -144,7 +144,7 @@ function PreviewList(_ref2) {
     classes = _ref2.classes,
     getPreviewIcon = _ref2.getPreviewIcon;
   if (useChipsForPreview) {
-    return /*#__PURE__*/createElement(Grid2, _extends({
+    return /*#__PURE__*/createElement(Grid, _extends({
       spacing: 1,
       direction: "row"
     }, previewGridProps.container, {
@@ -152,7 +152,7 @@ function PreviewList(_ref2) {
       className: clsx(classes.root, previewGridClasses.container)
     }), fileObjects.map(function (fileObject, i) {
       var _fileObject$file$name, _fileObject$file;
-      return /*#__PURE__*/createElement(Grid2, _extends({}, previewGridProps.item, {
+      return /*#__PURE__*/createElement(Grid, _extends({}, previewGridProps.item, {
         key: "".concat((_fileObject$file$name = (_fileObject$file = fileObject.file) === null || _fileObject$file === void 0 ? void 0 : _fileObject$file.name) !== null && _fileObject$file$name !== void 0 ? _fileObject$file$name : 'file', "-").concat(i),
         className: classes.imageContainer
       }), /*#__PURE__*/createElement(Chip, _extends({
@@ -163,14 +163,14 @@ function PreviewList(_ref2) {
       })));
     }));
   }
-  return /*#__PURE__*/createElement(Grid2, _extends({
+  return /*#__PURE__*/createElement(Grid, _extends({
     spacing: 8
   }, previewGridProps.container, {
     container: true,
     className: clsx(classes.root, previewGridClasses.container)
   }), fileObjects.map(function (fileObject, i) {
     var _fileObject$file$name2, _fileObject$file2;
-    return /*#__PURE__*/createElement(Grid2, _extends({
+    return /*#__PURE__*/createElement(Grid, _extends({
       size: 4
     }, previewGridProps.item, {
       key: "".concat((_fileObject$file$name2 = (_fileObject$file2 = fileObject.file) === null || _fileObject$file2 === void 0 ? void 0 : _fileObject$file2.name) !== null && _fileObject$file$name2 !== void 0 ? _fileObject$file$name2 : 'file', "-").concat(i),
