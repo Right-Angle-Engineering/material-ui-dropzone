@@ -1,16 +1,28 @@
 import Chip from '@mui/material/Chip';
+import {styled} from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import {withStyles} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import clsx from 'clsx';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const styles = ({palette, shape, spacing}) => ({
-    root: {},
-    imageContainer: {
+const PREFIX = 'MuiDropzonePreviewList';
+
+const classes = {
+    root: `${PREFIX}-root`,
+    imageContainer: `${PREFIX}-imageContainer`,
+    image: `${PREFIX}-image`,
+    removeButton: `${PREFIX}-removeButton`,
+};
+
+const StyledGrid = styled(Grid)(({
+    theme: {palette, shape, spacing},
+}) => ({
+    [`&.${classes.root}`]: {},
+
+    [`& .${classes.imageContainer}`]: {
         position: 'relative',
         zIndex: 10,
         textAlign: 'center',
@@ -21,7 +33,8 @@ const styles = ({palette, shape, spacing}) => ({
             opacity: 1,
         },
     },
-    image: {
+
+    [`& .${classes.image}`]: {
         height: 100,
         width: 'initial',
         maxWidth: '100%',
@@ -33,7 +46,8 @@ const styles = ({palette, shape, spacing}) => ({
         zIndex: 5,
         opacity: 1,
     },
-    removeButton: {
+
+    [`& .${classes.removeButton}`]: {
         transition: '.5s ease',
         position: 'absolute',
         opacity: 0,
@@ -45,7 +59,7 @@ const styles = ({palette, shape, spacing}) => ({
             opacity: 1,
         },
     },
-});
+}));
 
 function PreviewList({
     fileObjects,
@@ -60,7 +74,7 @@ function PreviewList({
 }) {
     if (useChipsForPreview) {
         return (
-            <Grid
+            <StyledGrid
                 spacing={1}
                 direction="row"
                 {...previewGridProps.container}
@@ -83,7 +97,7 @@ function PreviewList({
                         </Grid>
                     );
                 })}
-            </Grid>
+            </StyledGrid>
         );
     }
 
@@ -136,4 +150,4 @@ PreviewList.propTypes = {
     useChipsForPreview: PropTypes.bool,
 };
 
-export default withStyles(styles, {name: 'MuiDropzonePreviewList'})(PreviewList);
+export default (PreviewList);

@@ -17,11 +17,12 @@ var _regeneratorRuntime = _interopDefault(require('@babel/runtime/regenerator'))
 var PropTypes = _interopDefault(require('prop-types'));
 var React = require('react');
 var React__default = _interopDefault(React);
+var _defineProperty = _interopDefault(require('@babel/runtime/helpers/defineProperty'));
 var Snackbar = _interopDefault(require('@mui/material/Snackbar'));
+var styles = require('@mui/material/styles');
 var Typography = _interopDefault(require('@mui/material/Typography'));
 var Button = _interopDefault(require('@mui/material/Button'));
 var Alert = _interopDefault(require('@mui/material/Alert'));
-var material = require('@mui/material');
 var AttachFileIcon = _interopDefault(require('@mui/icons-material/AttachFile'));
 var CloudUploadIcon = _interopDefault(require('@mui/icons-material/CloudUpload'));
 var clsx = _interopDefault(require('clsx'));
@@ -97,61 +98,64 @@ function readFile(file) {
 }
 
 var _DeleteIcon;
-var styles = function styles(_ref) {
-  var palette = _ref.palette,
-    shape = _ref.shape,
-    spacing = _ref.spacing;
-  return {
-    root: {},
-    imageContainer: {
-      position: 'relative',
-      zIndex: 10,
-      textAlign: 'center',
-      '&:hover $image': {
-        opacity: 0.3
-      },
-      '&:hover $removeButton': {
-        opacity: 1
-      }
-    },
-    image: {
-      height: 100,
-      width: 'initial',
-      maxWidth: '100%',
-      color: palette.text.primary,
-      transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-      boxSizing: 'border-box',
-      boxShadow: 'rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px',
-      borderRadius: shape.borderRadius,
-      zIndex: 5,
-      opacity: 1
-    },
-    removeButton: {
-      transition: '.5s ease',
-      position: 'absolute',
-      opacity: 0,
-      top: spacing(-1),
-      right: spacing(-1),
-      width: 40,
-      height: 40,
-      '&:focus': {
-        opacity: 1
-      }
-    }
-  };
+var PREFIX = 'MuiDropzonePreviewList';
+var classes = {
+  root: "".concat(PREFIX, "-root"),
+  imageContainer: "".concat(PREFIX, "-imageContainer"),
+  image: "".concat(PREFIX, "-image"),
+  removeButton: "".concat(PREFIX, "-removeButton")
 };
-function PreviewList(_ref2) {
-  var fileObjects = _ref2.fileObjects,
-    handleRemove = _ref2.handleRemove,
-    showFileNames = _ref2.showFileNames,
-    useChipsForPreview = _ref2.useChipsForPreview,
-    previewChipProps = _ref2.previewChipProps,
-    previewGridClasses = _ref2.previewGridClasses,
-    previewGridProps = _ref2.previewGridProps,
-    classes = _ref2.classes,
-    getPreviewIcon = _ref2.getPreviewIcon;
+var StyledGrid = styles.styled(Grid)(function (_ref) {
+  var _ref$theme = _ref.theme,
+    palette = _ref$theme.palette,
+    shape = _ref$theme.shape,
+    spacing = _ref$theme.spacing;
+  return _defineProperty(_defineProperty(_defineProperty(_defineProperty({}, "&.".concat(classes.root), {}), "& .".concat(classes.imageContainer), {
+    position: 'relative',
+    zIndex: 10,
+    textAlign: 'center',
+    '&:hover $image': {
+      opacity: 0.3
+    },
+    '&:hover $removeButton': {
+      opacity: 1
+    }
+  }), "& .".concat(classes.image), {
+    height: 100,
+    width: 'initial',
+    maxWidth: '100%',
+    color: palette.text.primary,
+    transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+    boxSizing: 'border-box',
+    boxShadow: 'rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px',
+    borderRadius: shape.borderRadius,
+    zIndex: 5,
+    opacity: 1
+  }), "& .".concat(classes.removeButton), {
+    transition: '.5s ease',
+    position: 'absolute',
+    opacity: 0,
+    top: spacing(-1),
+    right: spacing(-1),
+    width: 40,
+    height: 40,
+    '&:focus': {
+      opacity: 1
+    }
+  });
+});
+function PreviewList(_ref3) {
+  var fileObjects = _ref3.fileObjects,
+    handleRemove = _ref3.handleRemove,
+    showFileNames = _ref3.showFileNames,
+    useChipsForPreview = _ref3.useChipsForPreview,
+    previewChipProps = _ref3.previewChipProps,
+    previewGridClasses = _ref3.previewGridClasses,
+    previewGridProps = _ref3.previewGridProps,
+    classes = _ref3.classes,
+    getPreviewIcon = _ref3.getPreviewIcon;
   if (useChipsForPreview) {
-    return /*#__PURE__*/React.createElement(Grid, _extends({
+    return /*#__PURE__*/React.createElement(StyledGrid, _extends({
       spacing: 1,
       direction: "row"
     }, previewGridProps.container, {
@@ -203,17 +207,25 @@ process.env.NODE_ENV !== "production" ? PreviewList.propTypes = {
   showFileNames: PropTypes.bool,
   useChipsForPreview: PropTypes.bool
 } : void 0;
-var PreviewList$1 = material.withStyles(styles, {
-  name: 'MuiDropzonePreviewList'
-})(PreviewList);
 
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-var styles$1 = function styles(_ref) {
-  var palette = _ref.palette,
-    shape = _ref.shape,
-    spacing = _ref.spacing;
-  return {
+var PREFIX$1 = 'MuiDropzoneArea';
+var classes$1 = {
+  root: "".concat(PREFIX$1, "-root"),
+  active: "".concat(PREFIX$1, "-active"),
+  invalid: "".concat(PREFIX$1, "-invalid"),
+  textContainer: "".concat(PREFIX$1, "-textContainer"),
+  text: "".concat(PREFIX$1, "-text"),
+  icon: "".concat(PREFIX$1, "-icon"),
+  resetButton: "".concat(PREFIX$1, "-resetButton")
+};
+var Root = styles.styled('br/')(function (_ref) {
+  var _ref$theme = _ref.theme,
+    palette = _ref$theme.palette,
+    shape = _ref$theme.shape,
+    spacing = _ref$theme.spacing;
+  return _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty({
     '@keyframes progress': {
       '0%': {
         backgroundPosition: '0 0'
@@ -221,50 +233,43 @@ var styles$1 = function styles(_ref) {
       '100%': {
         backgroundPosition: '-70px 0'
       }
-    },
-    root: {
-      position: 'relative',
-      width: '100%',
-      minHeight: '250px',
-      backgroundColor: palette.background.paper,
-      border: 'dashed',
-      borderColor: palette.divider,
-      borderRadius: shape.borderRadius,
-      boxSizing: 'border-box',
-      cursor: 'pointer',
-      overflow: 'hidden'
-    },
-    active: {
-      animation: '$progress 2s linear infinite !important',
-      // eslint-disable-next-line max-len
-      backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette.background.paper, ", ").concat(palette.background.paper, " 25px, ").concat(palette.divider, " 25px, ").concat(palette.divider, " 50px)"),
-      backgroundSize: '150% 100%',
-      border: 'solid',
-      borderColor: palette.primary.light
-    },
-    invalid: {
-      // eslint-disable-next-line max-len
-      backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette.error.light, ", ").concat(palette.error.light, " 25px, ").concat(palette.error.dark, " 25px, ").concat(palette.error.dark, " 50px)"),
-      borderColor: palette.error.main
-    },
-    textContainer: {
-      textAlign: 'center'
-    },
-    text: {
-      marginBottom: spacing(3),
-      marginTop: spacing(3)
-    },
-    icon: {
-      width: 51,
-      height: 51,
-      color: palette.text.primary
-    },
-    resetButton: {
-      display: 'block',
-      margin: '10px 0'
     }
-  };
-};
+  }, "& .".concat(classes$1.root), {
+    position: 'relative',
+    width: '100%',
+    minHeight: '250px',
+    backgroundColor: palette.background.paper,
+    border: 'dashed',
+    borderColor: palette.divider,
+    borderRadius: shape.borderRadius,
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    overflow: 'hidden'
+  }), "& .".concat(classes$1.active), {
+    animation: '$progress 2s linear infinite !important',
+    // eslint-disable-next-line max-len
+    backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette.background.paper, ", ").concat(palette.background.paper, " 25px, ").concat(palette.divider, " 25px, ").concat(palette.divider, " 50px)"),
+    backgroundSize: '150% 100%',
+    border: 'solid',
+    borderColor: palette.primary.light
+  }), "& .".concat(classes$1.invalid), {
+    // eslint-disable-next-line max-len
+    backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette.error.light, ", ").concat(palette.error.light, " 25px, ").concat(palette.error.dark, " 25px, ").concat(palette.error.dark, " 50px)"),
+    borderColor: palette.error.main
+  }), "& .".concat(classes$1.textContainer), {
+    textAlign: 'center'
+  }), "& .".concat(classes$1.text), {
+    marginBottom: spacing(3),
+    marginTop: spacing(3)
+  }), "& .".concat(classes$1.icon), {
+    width: 51,
+    height: 51,
+    color: palette.text.primary
+  }), "& .".concat(classes$1.resetButton), {
+    display: 'block',
+    margin: '10px 0'
+  });
+});
 var defaultSnackbarAnchorOrigin = {
   horizontal: 'left',
   vertical: 'bottom'
@@ -299,7 +304,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
       snackbarVariant: 'success'
     };
     _this.handleDropAccepted = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2(acceptedFiles, evt) {
+      var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2(acceptedFiles, evt) {
         var _this$props, fileObjects, filesLimit, getFileAddedMessage, getFileLimitExceedMessage, onAdd, onDrop, fileObjs, message;
         return _regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
@@ -324,7 +329,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
               // Retrieve fileObjects data
               _context2.next = 7;
               return Promise.all(acceptedFiles.map(/*#__PURE__*/function () {
-                var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(file) {
+                var _ref4 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(file) {
                   var data;
                   return _regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) switch (_context.prev = _context.next) {
@@ -344,7 +349,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
                   }, _callee);
                 }));
                 return function (_x3) {
-                  return _ref3.apply(this, arguments);
+                  return _ref4.apply(this, arguments);
                 };
               }()));
             case 7:
@@ -370,7 +375,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
         }, _callee2);
       }));
       return function (_x, _x2) {
-        return _ref2.apply(this, arguments);
+        return _ref3.apply(this, arguments);
       };
     }();
     _this.handleDropRejected = function (rejectedFiles, evt) {
@@ -485,12 +490,12 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
         onDropRejected: this.handleDropRejected,
         maxSize: maxFileSize,
         multiple: isMultiple
-      }), function (_ref4) {
-        var getRootProps = _ref4.getRootProps,
-          getInputProps = _ref4.getInputProps,
-          isDragActive = _ref4.isDragActive,
-          isDragReject = _ref4.isDragReject;
-        return /*#__PURE__*/React__default.createElement("div", getRootProps({
+      }), function (_ref5) {
+        var getRootProps = _ref5.getRootProps,
+          getInputProps = _ref5.getInputProps,
+          isDragActive = _ref5.isDragActive,
+          isDragReject = _ref5.isDragReject;
+        return /*#__PURE__*/React__default.createElement(Root, getRootProps({
           className: clsx(classes.root, dropzoneClass, isDragActive && classes.active, !disableRejectionFeedback && isDragReject && classes.invalid)
         }), /*#__PURE__*/React__default.createElement("input", getInputProps(inputProps)), /*#__PURE__*/React__default.createElement("div", {
           className: classes.textContainer
@@ -502,7 +507,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
           className: classes.icon
         }) : /*#__PURE__*/React__default.createElement(CloudUploadIcon, {
           className: classes.icon
-        })), previewsInDropzoneVisible && /*#__PURE__*/React__default.createElement(PreviewList$1, {
+        })), previewsInDropzoneVisible && /*#__PURE__*/React__default.createElement(PreviewList, {
           fileObjects: fileObjects,
           handleRemove: _this2.handleRemove,
           getPreviewIcon: getPreviewIcon,
@@ -519,7 +524,7 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
       }, reset.text || 'reset')), previewsVisible && /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Typography, {
         variant: "subtitle1",
         component: "span"
-      }, previewText), /*#__PURE__*/React__default.createElement(PreviewList$1, {
+      }, previewText), /*#__PURE__*/React__default.createElement(PreviewList, {
         fileObjects: fileObjects,
         handleRemove: this.handleRemove,
         getPreviewIcon: getPreviewIcon,
@@ -764,9 +769,6 @@ process.env.NODE_ENV !== "production" ? DropzoneAreaBase.propTypes = {
    */
   onAlert: PropTypes.func
 } : void 0;
-var DropzoneAreaBase$1 = material.withStyles(styles$1, {
-  name: 'MuiDropzoneArea'
-})(DropzoneAreaBase);
 
 var _excluded = ["clearOnUnmount", "initialFiles", "onChange", "onDelete"];
 function _callSuper$1(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$1() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
@@ -951,7 +953,7 @@ var DropzoneArea = /*#__PURE__*/function (_React$PureComponent) {
         _splitDropzoneAreaPro2 = _slicedToArray(_splitDropzoneAreaPro, 2),
         dropzoneAreaProps = _splitDropzoneAreaPro2[1];
       var fileObjects = this.state.fileObjects;
-      return /*#__PURE__*/React.createElement(DropzoneAreaBase$1, _extends({}, dropzoneAreaProps, {
+      return /*#__PURE__*/React.createElement(DropzoneAreaBase, _extends({}, dropzoneAreaProps, {
         fileObjects: fileObjects,
         onAdd: this.addFiles,
         onDelete: this.deleteFile
@@ -964,7 +966,7 @@ DropzoneArea.defaultProps = {
   filesLimit: 3,
   initialFiles: []
 };
-process.env.NODE_ENV !== "production" ? DropzoneArea.propTypes = _extends({}, DropzoneAreaBase$1.propTypes, {
+process.env.NODE_ENV !== "production" ? DropzoneArea.propTypes = _extends({}, DropzoneAreaBase.propTypes, {
   /** Clear uploaded files when component is unmounted. */
   clearOnUnmount: PropTypes.bool,
   /** List containing File objects or URL strings.<br/>
@@ -1053,7 +1055,7 @@ var DropzoneDialogBase = /*#__PURE__*/function (_React$PureComponent) {
         maxWidth: maxWidth,
         onClose: onClose,
         open: open
-      }), /*#__PURE__*/React.createElement(DialogTitle, null, dialogTitle), /*#__PURE__*/React.createElement(DialogContent, null, /*#__PURE__*/React.createElement(DropzoneAreaBase$1, dropzoneAreaProps)), /*#__PURE__*/React.createElement(DialogActions, null, /*#__PURE__*/React.createElement(Button, {
+      }), /*#__PURE__*/React.createElement(DialogTitle, null, dialogTitle), /*#__PURE__*/React.createElement(DialogContent, null, /*#__PURE__*/React.createElement(DropzoneAreaBase, dropzoneAreaProps)), /*#__PURE__*/React.createElement(DialogActions, null, /*#__PURE__*/React.createElement(Button, {
         onClick: onClose
       }, cancelButtonText), /*#__PURE__*/React.createElement(Button, {
         disabled: submitDisabled,
@@ -1074,7 +1076,7 @@ DropzoneDialogBase.defaultProps = {
   showPreviewsInDropzone: false,
   showFileNamesInPreview: true
 };
-process.env.NODE_ENV !== "production" ? DropzoneDialogBase.propTypes = _extends({}, DropzoneAreaBase$1.propTypes, {
+process.env.NODE_ENV !== "production" ? DropzoneDialogBase.propTypes = _extends({}, DropzoneAreaBase.propTypes, {
   /** Sets whether the dialog is open or closed. */
   open: PropTypes.bool,
   /** The Dialog title. */
@@ -1350,7 +1352,7 @@ process.env.NODE_ENV !== "production" ? DropzoneDialog.propTypes = _extends({}, 
 }) : void 0;
 
 exports.DropzoneArea = DropzoneArea;
-exports.DropzoneAreaBase = DropzoneAreaBase$1;
+exports.DropzoneAreaBase = DropzoneAreaBase;
 exports.DropzoneDialog = DropzoneDialog;
 exports.DropzoneDialogBase = DropzoneDialogBase;
 //# sourceMappingURL=index.js.map

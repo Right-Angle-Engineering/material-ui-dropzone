@@ -1,8 +1,8 @@
 import Snackbar from '@mui/material/Snackbar';
+import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
-import {withStyles} from '@mui/material';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import clsx from 'clsx';
@@ -12,7 +12,21 @@ import Dropzone from 'react-dropzone';
 import {convertBytesToMbsOrKbs, isImage, readFile} from '../helpers';
 import PreviewList from './PreviewList';
 
-const styles = ({palette, shape, spacing}) => ({
+const PREFIX = 'MuiDropzoneArea';
+
+const classes = {
+    root: `${PREFIX}-root`,
+    active: `${PREFIX}-active`,
+    invalid: `${PREFIX}-invalid`,
+    textContainer: `${PREFIX}-textContainer`,
+    text: `${PREFIX}-text`,
+    icon: `${PREFIX}-icon`,
+    resetButton: `${PREFIX}-resetButton`,
+};
+
+const Root = styled('br/')(({
+    theme: {palette, shape, spacing},
+}) => ({
     '@keyframes progress': {
         '0%': {
             backgroundPosition: '0 0',
@@ -21,7 +35,7 @@ const styles = ({palette, shape, spacing}) => ({
             backgroundPosition: '-70px 0',
         },
     },
-    root: {
+    [`& .${classes.root}`]: {
         position: 'relative',
         width: '100%',
         minHeight: '250px',
@@ -33,7 +47,8 @@ const styles = ({palette, shape, spacing}) => ({
         cursor: 'pointer',
         overflow: 'hidden',
     },
-    active: {
+
+    [`& .${classes.active}`]: {
         animation: '$progress 2s linear infinite !important',
         // eslint-disable-next-line max-len
         backgroundImage: `repeating-linear-gradient(-45deg, ${palette.background.paper}, ${palette.background.paper} 25px, ${palette.divider} 25px, ${palette.divider} 50px)`,
@@ -41,28 +56,33 @@ const styles = ({palette, shape, spacing}) => ({
         border: 'solid',
         borderColor: palette.primary.light,
     },
-    invalid: {
+
+    [`& .${classes.invalid}`]: {
         // eslint-disable-next-line max-len
         backgroundImage: `repeating-linear-gradient(-45deg, ${palette.error.light}, ${palette.error.light} 25px, ${palette.error.dark} 25px, ${palette.error.dark} 50px)`,
         borderColor: palette.error.main,
     },
-    textContainer: {
+
+    [`& .${classes.textContainer}`]: {
         textAlign: 'center',
     },
-    text: {
+
+    [`& .${classes.text}`]: {
         marginBottom: spacing(3),
         marginTop: spacing(3),
     },
-    icon: {
+
+    [`& .${classes.icon}`]: {
         width: 51,
         height: 51,
         color: palette.text.primary,
     },
-    resetButton: {
+
+    [`& .${classes.resetButton}`]: {
         display: 'block',
         margin: '10px 0',
     },
-});
+}));
 
 const defaultSnackbarAnchorOrigin = {
     horizontal: 'left',
@@ -244,7 +264,7 @@ class DropzoneAreaBase extends React.PureComponent {
                     multiple={isMultiple}
                 >
                     {({getRootProps, getInputProps, isDragActive, isDragReject}) => (
-                        <div
+                        <Root
                             {...getRootProps({
                                 className: clsx(
                                     classes.root,
@@ -283,7 +303,7 @@ class DropzoneAreaBase extends React.PureComponent {
                                     previewGridProps={previewGridProps}
                                 />
                             }
-                        </div>
+                        </Root>
                     )}
                 </Dropzone>
 
@@ -562,4 +582,4 @@ DropzoneAreaBase.propTypes = {
     onAlert: PropTypes.func,
 };
 
-export default withStyles(styles, {name: 'MuiDropzoneArea'})(DropzoneAreaBase);
+export default (DropzoneAreaBase);
