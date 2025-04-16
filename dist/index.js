@@ -21,7 +21,7 @@ var Snackbar = _interopDefault(require('@mui/material/Snackbar'));
 var Typography = _interopDefault(require('@mui/material/Typography'));
 var Button = _interopDefault(require('@mui/material/Button'));
 var Alert = _interopDefault(require('@mui/material/Alert'));
-var material = require('@mui/material');
+var styles$2 = require('@mui/styles');
 var AttachFileIcon = _interopDefault(require('@mui/icons-material/AttachFile'));
 var CloudUploadIcon = _interopDefault(require('@mui/icons-material/CloudUpload'));
 var clsx = _interopDefault(require('clsx'));
@@ -203,7 +203,7 @@ process.env.NODE_ENV !== "production" ? PreviewList.propTypes = {
   showFileNames: PropTypes.bool,
   useChipsForPreview: PropTypes.bool
 } : void 0;
-var PreviewList$1 = material.withStyles(styles, {
+var PreviewList$1 = styles$2.withStyles(styles, {
   name: 'MuiDropzonePreviewList'
 })(PreviewList);
 
@@ -764,7 +764,7 @@ process.env.NODE_ENV !== "production" ? DropzoneAreaBase.propTypes = {
    */
   onAlert: PropTypes.func
 } : void 0;
-var DropzoneAreaBase$1 = material.withStyles(styles$1, {
+var DropzoneAreaBase$1 = styles$2.withStyles(styles$1, {
   name: 'MuiDropzoneArea'
 })(DropzoneAreaBase);
 
